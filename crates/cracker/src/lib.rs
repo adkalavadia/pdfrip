@@ -65,6 +65,7 @@ impl<T: Clone> Cache<T> for SimpleCache<T> {
         match hash.get(&key) {
             Some(value) => value.clone(),
             None => {
+                fn clear(&self) {}
                 let value = compute();
                 hash.insert(key, value.clone());
                 value
